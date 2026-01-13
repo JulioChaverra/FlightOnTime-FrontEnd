@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from "../app-routing.module";
 import { DetalleVueloComponent } from './detalle-vuelo/detalle-vuelo.component';
+import { AeropuertosComponent } from './aeropuertos/aeropuertos.component';
 
 
 
@@ -15,7 +16,8 @@ declarations: [
     VuelosComponent,
     RegisterComponent,
     LoginComponent,
-    DetalleVueloComponent
+    DetalleVueloComponent,
+    AeropuertosComponent
   ],
   imports: [
     CommonModule,
