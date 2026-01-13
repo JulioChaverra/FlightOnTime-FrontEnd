@@ -3,43 +3,38 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { authGuard } from './auth/auth.guard';
+import { VuelosComponent } from './pages/vuelos/vuelos.component';
+import { DetalleVueloComponent } from './pages/detalle-vuelo/detalle-vuelo.component';
 
 const routes: Routes = [
 
-  // 🔓 RUTAS PÚBLICAS
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
+  // 🔓 Públicas
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 
-  // 🔐 RUTAS PROTEGIDAS
+  // 🔐 Protegidas
   {
     path: '',
     canActivate: [authGuard],
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'vuelo',
         pathMatch: 'full'
       },
       {
-       path: 'dashboard',
-        loadComponent: () =>
-          import('./pages/vuelos/vuelos.component')
-            .then(m => m.VuelosComponent)
+        path: 'dashboard',
+        component: VuelosComponent
       },
+      {
+        path: 'vuelo',
+        component: DetalleVueloComponent
+      }
     ]
   },
 
-  // ❌ NOT FOUND
-  {
-    path: '**',
-    redirectTo: 'login'
-  }
+  // ❌ Not found
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

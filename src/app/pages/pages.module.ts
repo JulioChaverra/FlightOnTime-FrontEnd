@@ -6,20 +6,21 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from "../app-routing.module";
+import { DetalleVueloComponent } from './detalle-vuelo/detalle-vuelo.component';
 
 
 
 @NgModule({
-  declarations: [
+declarations: [
     VuelosComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    DetalleVueloComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    AppRoutingModule
-]
+    ReactiveFormsModule
+  ]
 })
 export class PagesModule { }

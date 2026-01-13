@@ -37,7 +37,7 @@ export class LoginComponent {
         next: () => {
           this.loading = false;
           AlertUtil.success('Bienvenido', 'Inicio de sesión exitoso');
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/']);
         },
         error: () => {
           this.loading = false;
